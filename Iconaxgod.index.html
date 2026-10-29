@@ -340,7 +340,7 @@
 
     <div class="clips-grid">
       <!-- Клип 1 -->
-      <article class="clip-card" data-clip="AwkwardToughSparrow">
+      <article class="clip-card" data-clip="RacyWanderingIguanaCclamChamp-vQuRmrcWVRCV3hxn">
         <div class="video-wrapper">
           <iframe 
             class="twitch-clip-frame"
@@ -671,7 +671,7 @@ RAM: 32 GB DDR4
         try {
             const currentHost = window.location.hostname || 'localhost';
             const embedIframe = document.getElementById('twitch-embed-player');
-            embedIframe.src = `https://player.twitch.tv/?channel=iconaxgod&parent=$https://icona-xgod.github.io/stream-site/Iconaxgod.index&muted=true`;
+            embedIframe.src = `https://player.twitch.tv/?channel=iconaxgod&parent=${currentHost}&parent=localhost&parent=127.0.0.1&muted=true`;
         } catch (e) {
             console.warn("Could not set dynamic parent hostname", e);
         }
@@ -690,21 +690,21 @@ RAM: 32 GB DDR4
             }
         });
     </script>
-	<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		// Получаем текущий домен сайта (например, icona-xgod.github.io или localhost)
-		const currentDomain = window.location.hostname || https://icona-xgod.github.io/stream-site/Iconaxgod.index;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Получаем текущий домен сайта (например, icona-xgod.github.io или localhost)
+    const currentDomain = window.location.hostname || 'localhost';
 
-		// Находим все карточки клипов и подставляем ссылку в iframe
-		document.querySelectorAll('.clip-card').forEach(card => {
-		const clipId = card.getAttribute(RacyWanderingIguanaCclamChamp-vQuRmrcWVRCV3hxn);
-		const iframe = card.querySelector('.twitch-clip-frame');
+    // Находим все карточки клипов и подставляем ссылку в iframe
+    document.querySelectorAll('.clip-card').forEach(card => {
+      const clipId = card.getAttribute('data-clip');
+      const iframe = card.querySelector('.twitch-clip-frame');
       
-		if (clipId && iframe) {
-			iframe.src = `https://clips.twitch.tv/embed?clip=$RacyWanderingIguanaCclamChamp-vQuRmrcWVRCV3hxn&parent=$https://icona-xgod.github.io/stream-site/Iconaxgod.index&autoplay=false`;
-		}
-		});
-	});
-	</script>
+      if (clipId && iframe) {
+        iframe.src = `https://clips.twitch.tv/embed?clip=${clipId}&parent=${currentDomain}&autoplay=false`;
+      }
+    });
+  });
+</script>
 </body>
 </html>
